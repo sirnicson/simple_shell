@@ -168,7 +168,7 @@ Tested by entering commands to the shell or using command files
 
 ## Simple Shell Flow Chart
 
-![Simple Shell Flowchart](images/Simple Shell Flowchart.png)
+![Simple Shell Flowchart](images/Simple%20Shell%20 Flowchart.png)
 
 -----------------------------------------------------------------------
 
