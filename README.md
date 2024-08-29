@@ -67,7 +67,7 @@ To compile the shell, use the following command:
 
 ```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
-
+```
 
 ## Testing
 - Interactive Mode: Run the shell using ./hsh and interact with it by entering commands.
@@ -75,16 +75,16 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 - Non-Interactive Mode: Test by entering commands or using command files specified as arguments.
 
 ## Files
-AUTHORS - List of authors.
-README.md - This file.
-shell.h - Header file containing function prototypes and definitions.
-shell_main.c - Main file for the shell implementation.
-shell_utils.c - Utility functions for the shell.
-builtin_.c - Implementation of built-in commands.
-initializer_.c - Functions for initializing the shell.
-non_interactive_.c - Functions for non-interactive mode.
-help_0.c, help_1.c, help_2.c - Help functions for the shell.
-images - Image folder
+- AUTHORS - List of authors.
+- README.md - This file.
+- shell.h - Header file containing function prototypes and definitions.
+- shell_main.c - Main file for the shell implementation.
+- shell_utils.c - Utility functions for the shell.
+- builtin_.c
+- initializer_.c - Functions for initializing the shell.
+- non_interactive_.c - Functions for non-interactive mode.
+- helperfunctions: help_0.c, help_1.c, help_2.c - Help functions for the shell.
+- images - Image folder
 
 
 ## Process
@@ -94,12 +94,13 @@ images - Image folder
 - Update README.md with Simple Shell Flowchart
 - Creation of header file
 - Creation of c. files
-
+- Compilation & Testing
 
 ## Collaborators - sirnicson & Abdulquadri
 
 
 --------------------------------------------
+
 ## Simple Shell flow Chart
 
 ![Simple Shell Flowchart](images/Simple%20Shell%20Flowchart.png)
