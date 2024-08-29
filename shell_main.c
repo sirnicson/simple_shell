@@ -29,7 +29,7 @@ int main(int argc __attribute__((unused)), char **argv)
 	while (1)
 	{
 		non_interactive();
-		print(" ($) ", STDOUT_FILENO);
+		print(":) ", STDOUT_FILENO);
 		if (getline(&line, &n, stdin) == -1)
 		{
 			free(line);
