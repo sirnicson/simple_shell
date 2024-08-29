@@ -21,14 +21,14 @@ extern char **environ;
 
 
 /**
- * struct data -
- * @av: 
- * @input: 
- * @args:
- * @status: 
- * @counter:
- * @_environ: 
- * @pid: 
+ * struct data - process
+ * @av: av
+ * @input: input
+ * @args:args
+ * @status: status
+ * @counter:counter
+ * @_environ environ: 
+ * @pid: pid
  */
 typedef struct data
 {
@@ -42,10 +42,10 @@ typedef struct data
 } data_shell;
 
 /**
- * struct sep_list_s 
+ * struct sep_list_s - sep list
  * @separator: ; | &
- * @next: 
- * Description: 
+ * @next: next
+ * Description: construct
 typedef struct sep_list_s
 {
 	char separator;
@@ -53,10 +53,10 @@ typedef struct sep_list_s
 } sep_list;
 
 /**
- * struct line_list_s - 
- * @line: 
- * @next: 
- * Description:  
+ * struct line_list_s - line list
+ * @line: line
+ * @next: next to
+ * Description:  simple shell
  */
 typedef struct line_list_s
 {
@@ -65,12 +65,12 @@ typedef struct line_list_s
 } line_list;
 
 /**
- * struct r_var_list - kana zvaka dayi
- * @len_var: 
- * @val: 
- * @len_val: 
- * @next: 
- * Description: 
+ * struct r_var_list - list
+ * @len_var:variables 
+ * @val: val
+ * @len_val: len val
+ * @next: next
+ * Description: shell
  */
 typedef struct r_var_list
 {
