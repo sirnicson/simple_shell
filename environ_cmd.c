@@ -160,7 +160,7 @@ int cmd_exec(data_shell *datash)
 {
 	pid_t pd;
 	pid_t wpd;
-	int state;
+	int state = 0;
 	int exec;
 	char *dir;
 	(void) wpd;

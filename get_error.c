@@ -8,7 +8,7 @@
  */
 int get_error(data_shell *datash, int eval)
 {
-	char *error;
+	char *error = NULL;
 
 	switch (eval)
 	{

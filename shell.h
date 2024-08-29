@@ -16,21 +16,19 @@
 #define TOK_BUFSIZE 128
 #define TOK_DELIM " \t\r\n\a"
 
-
 extern char **environ;
 
-
 /**
- * struct data - process
- * @av: av
- * @input: input
- * @args:args
- * @status: status
- * @counter:counter
- * @_environ environ: 
- * @pid: pid
+ * struct data_shell - Holds shell-related data for command processing
+ * @av: Argument vector (command line arguments)
+ * @input: Command input from the user
+ * @args: Parsed arguments
+ * @status: Status of the last executed command
+ * @counter: Command counter
+ * @_environ: Environment variables
+ * @pid: Process ID of the shell
  */
-typedef struct data
+typedef struct data_shell
 {
 	char **av;
 	char *input;
@@ -42,10 +40,10 @@ typedef struct data
 } data_shell;
 
 /**
- * struct sep_list_s - sep list
- * @separator: ; | &
- * @next: next
- * Description: construct
+ * struct sep_list_s - Linked list of command separators (;, |, &)
+ * @separator: The separator character
+ * @next: Pointer to the next node in the list
+ */
 typedef struct sep_list_s
 {
 	char separator;
@@ -53,10 +51,9 @@ typedef struct sep_list_s
 } sep_list;
 
 /**
- * struct line_list_s - line list
- * @line: line
- * @next: next to
- * Description:  simple shell
+ * struct line_list_s - Linked list of command lines
+ * @line: The command line
+ * @next: Pointer to the next node in the list
  */
 typedef struct line_list_s
 {
@@ -65,12 +62,11 @@ typedef struct line_list_s
 } line_list;
 
 /**
- * struct r_var_list - list
- * @len_var:variables 
- * @val: val
- * @len_val: len val
- * @next: next
- * Description: shell
+ * struct r_var_list - Linked list for variable replacements
+ * @len_var: Length of the variable name
+ * @val: Value to replace the variable with
+ * @len_val: Length of the replacement value
+ * @next: Pointer to the next node in the list
  */
 typedef struct r_var_list
 {
@@ -81,15 +77,17 @@ typedef struct r_var_list
 } r_var;
 
 /**
- * struct builtin_s - 
- * @name: 
- * @f: 
+ * struct builtin_s - Structure for built-in shell commands
+ * @name: Name of the built-in command
+ * @f: Function pointer to the corresponding built-in function
  */
 typedef struct builtin_s
 {
 	char *name;
 	int (*f)(data_shell *datash);
 } builtin_t;
+
+/* Function prototypes */
 
 /* a.c */
 sep_list *add_sep_node_end(sep_list **head, char sep);
@@ -101,14 +99,14 @@ void free_line_list(line_list **head);
 r_var *add_rvar_node(r_var **head, int lvar, char *var, int lval);
 void free_rvar_list(r_var **head);
 
-/* a */
+/* a.c */
 char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 char *_strchr(char *s, char c);
 int _strspn(char *s, char *accept);
 
-/* ac */
+/* ac.c */
 void _memcpy(void *newptr, const void *ptr, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size);
@@ -154,7 +152,7 @@ char *rep_var(char *input, data_shell *datash);
 void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
 ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
 
-/* ee */
+/* ee.c */
 int exec_line(data_shell *datash);
 
 /* c.c */
@@ -183,7 +181,7 @@ void cd_to_home(data_shell *datash);
 /* c.c */
 int cd_shell(data_shell *datash);
 
-/* gn */
+/* gn.c */
 int (*get_builtin(char *cmd))(data_shell *datash);
 
 /* _.c */
@@ -207,7 +205,6 @@ char *error_syntax(char **args);
 char *error_permission(char **args);
 char *error_path_126(data_shell *datash);
 
-
 /* g.c */
 int get_error(data_shell *datash, int eval);
 
@@ -229,4 +226,4 @@ void aux_help_cd(void);
 /* g.c */
 int get_help(data_shell *datash);
 
-#endif
+#endif /* _SHELL_H_ */
